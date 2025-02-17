@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Clone</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar { background-color: #1F2933; }
+        .navbar-brand { color: #1cffac !important; font-weight: bold; }
+        .nav-link { color: #FFFFFF !important; font-size: 14px; }
+        .search-bar { width: 450px; border-radius: 20px; padding: 8px; }
+        .btn-search { border-color: #FFA41C; color: #FFA41C; }
+        .btn-search:hover { background-color: #FFA41C; color: #1F2933; }
+        .product-card { transition: 0.3s; }
+        .product-card:hover { transform: scale(1.05); }
+        .footer { background-color: #1F2933; color: white; padding: 20px 0; text-align: center; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Amazon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <form class="form-inline mx-auto">
+                <input class="form-control search-bar mr-2" type="search" placeholder="Search products...">
+                <button class="btn btn-outline-light btn-search" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#">Track Orders</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Deals</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Customer Service</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Registry</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card product-card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 1</h5>
+                        <p class="card-text">$99.99</p>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card product-card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 2</h5>
+                        <p class="card-text">$79.99</p>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-5">
+        <p>&copy; 2025 Amazon Clone. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

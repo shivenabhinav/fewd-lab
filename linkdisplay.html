@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        /* Basic styling for the modal */
+        #modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        #modalContent {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;   
+                 }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <table border="5px" cellpadding="5px" cellspacing="5px">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-sno="1" data-name="abc" data-phone="2347981732" data-address="sc hjgefcu w weg b">
+                <td>1</td>
+                <td>abc</td>
+                <td>2347981732</td>
+                <td>sc hjgefcu w weg b</td>
+                <td><a href="#" onclick="showDetails(this)">View Details</a></td>
+            </tr>
+            <tr data-sno="2" data-name="def" data-phone="9876543210" data-address="xyz street, city">
+                <td>2</td>
+                <td>def</td>
+                <td>9876543210</td>
+                <td>xyz street, city</td>
+                <td><a href="#" onclick="showDetails(this)">View Details</a></td>
+            </tr>
+            <!-- Add more student rows as needed -->
+        </tbody>
+    </table>
+
+    <!-- Modal for displaying student details -->
+    <div id="modal">
+        <div id="modalContent">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Student Details</h2>
+            <p id="studentDetails"></p>
+        </div>
+    </div>
+
+    <script>
+        function showDetails(link) {
+            // Get the parent row of the clicked link
+            const row = link.closest('tr');
+            // Retrieve data attributes from the row
+            const sno = row.getAttribute('data-sno');
+            const name = row.getAttribute('data-name');
+            const phone = row.getAttribute('data-phone');
+            const address = row.getAttribute('data-address');
+
+            // Create a details string using template literals
+            const details = `S.No: ${sno}<br>Name: ${name}<br>Phone: ${phone}<br>Address: ${address}`;
+            
+            // Update the modal content
+            document.getElementById('studentDetails').innerHTML = details;
+            document.getElementById('modal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = "none";
+        }
+
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
