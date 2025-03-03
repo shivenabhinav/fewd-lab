@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Submitted Feedback Details</h2>
+        <table class="table table-bordered mt-4">
+            <tr><th>Name</th><td id="resultName"></td></tr>
+            <tr><th>Email</th><td id="resultEmail"></td></tr>
+            <tr><th>Phone</th><td id="resultPhone"></td></tr>
+            <tr><th>Rating</th><td id="resultRating"></td></tr>
+            <tr><th>Questions</th><td id="resultQuestions"></td></tr>
+            <tr><th>Additional Comments</th><td id="resultComments"></td></tr>
+        </table>
+        <a href="feedback.html" class="btn btn-primary">Go Back</a>
+    </div>
+    <script>
+        const storedData = localStorage.getItem('feedbackData');
+
+        console.log("Retrieved Data:", storedData);
+
+        if (storedData) {
+            const feedback = JSON.parse(storedData);
+            document.getElementById('resultName').innerText = feedback.name;
+            document.getElementById('resultEmail').innerText = feedback.email;
+            document.getElementById('resultPhone').innerText = feedback.phone;
+            document.getElementById('resultRating').innerText = feedback.rating;
+            document.getElementById('resultQuestions').innerText = feedback.questions;
+            document.getElementById('resultComments').innerText = feedback.comments || "No additional comments";
+        } else {
+            document.body.innerHTML = `
+                <div class='container mt-5 text-center'>
+                    <h3>No data found. Please submit feedback first.</h3>
+                    <a href='feedback.html' class='btn btn-primary mt-3'>Go Back</a>
+                </div>
+            `;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
